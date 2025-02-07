@@ -3,31 +3,47 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/api/images')
       .then(response => response.json())
       .then(images => {
-        // Shuffle images array to display in random order
+        console.log(images);
+        // Shuffle the images array to display them in random order.
         shuffleArray(images);
         
         const grid = document.querySelector('.grid');
-        images.forEach(image => {
-          // Create a grid item container
+        
+        // Create a grid item for each image object.
+        images.forEach(imageObj => {
           const gridItem = document.createElement('div');
           gridItem.classList.add('grid-item');
+          // Store the description (from metadata or fallback) in a data attribute.
+          gridItem.dataset.description = imageObj.description;
           
-          // Create the image element
           const imgElement = document.createElement('img');
-          imgElement.src = `/images/${encodeURIComponent(image)}`;
-          imgElement.alt = image;
+          imgElement.src = `/images/${encodeURIComponent(imageObj.file)}`;
+          imgElement.alt = imageObj.description;
           
           gridItem.appendChild(imgElement);
           grid.appendChild(gridItem);
         });
         
-        // Wait for all images to load before initializing Masonry
+        // Wait for all images to load before initializing Masonry.
         imagesLoaded(grid, function() {
-          new Masonry(grid, {
+          const msnry = new Masonry(grid, {
             itemSelector: '.grid-item',
             columnWidth: '.grid-sizer',
             percentPosition: true,
             gutter: 10
+          });
+          
+          // Listen for changes on the search bar to filter images.
+          const searchInput = document.querySelector('.footer-blur input[type="text"]');
+          searchInput.addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            // Show or hide each grid item based on its description.
+            document.querySelectorAll('.grid-item').forEach(item => {
+              const desc = item.dataset.description.toLowerCase();
+              item.style.display = desc.includes(term) ? "" : "none";
+            });
+            // Re-layout Masonry after filtering.
+            msnry.layout();
           });
         });
       })
@@ -36,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
   
-  // Fisher–Yates shuffle algorithm to randomize the array
+  // Fisher–Yates shuffle algorithm to randomize the array.
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

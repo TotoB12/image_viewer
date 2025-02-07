@@ -6,13 +6,6 @@ body {
     background-color: #f0f0f0;
   }
   
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-  }
-  
   main {
     padding: 1rem;
   }
@@ -23,26 +16,14 @@ body {
     margin: 0 auto;
   }
   
-  /* grid-sizer sets the base column width for Masonry */
+  /* Set a fixed column width for Masonry: each column is 200px */
   .grid-sizer {
-    width: 33.333%;
+    width: 200px;
   }
   
-  @media (min-width: 768px) {
-    .grid-sizer {
-      width: 25%;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .grid-sizer {
-      width: 20%;
-    }
-  }
-  
-  /* Grid items use 100% of the column width */
+  /* Each grid item is now 200px wide */
   .grid-item {
-    width: 100%;
+    width: 200px;
     margin-bottom: 10px; /* Vertical gutter */
   }
   
@@ -59,5 +40,31 @@ body {
   .grid-item img:hover {
     transform: scale(1.05);
     border-color: #666;
+  }
+  
+  /* Fixed footer overlay with blur effect and search bar */
+  .footer-blur {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* A gradient to smoothly fade the bottom */
+    background: linear-gradient(transparent, rgba(240,240,240,1));
+    /* Blur the background behind the overlay */
+    backdrop-filter: blur(10px);
+    /* Ensure the overlay appears above other content */
+    z-index: 100;
+  }
+  
+  .footer-blur input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
