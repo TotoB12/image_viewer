@@ -10,10 +10,34 @@
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 </head>
 <body>
+  <!-- PIN Modal for authentication -->
+  <div id="pinModal" class="modal">
+    <div class="modal-content">
+      <h2>Enter PIN</h2>
+      <div id="pinDisplay">____</div>
+      <div class="pin-pad">
+        <button class="pin-button" data-value="1">1</button>
+        <button class="pin-button" data-value="2">2</button>
+        <button class="pin-button" data-value="3">3</button>
+        <button class="pin-button" data-value="4">4</button>
+        <button class="pin-button" data-value="5">5</button>
+        <button class="pin-button" data-value="6">6</button>
+        <button class="pin-button" data-value="7">7</button>
+        <button class="pin-button" data-value="8">8</button>
+        <button class="pin-button" data-value="9">9</button>
+        <button class="pin-button" id="clearButton">Clear</button>
+        <button class="pin-button" data-value="0">0</button>
+        <button class="pin-button" id="backspaceButton">⌫</button>
+      </div>
+      <button id="submitPin" class="submit-button">Submit</button>
+      <div id="pinError" class="error-message"></div>
+    </div>
+  </div>
+
   <main>
     <!-- Masonry grid container -->
     <div class="grid">
-      <!-- grid-sizer element used by Masonry for responsive column sizing -->
+      <!-- The grid-sizer element helps Masonry with responsive column sizing -->
       <div class="grid-sizer"></div>
       <!-- Grid items will be injected here by script.js -->
     </div>

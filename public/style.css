@@ -1,70 +1,141 @@
 /* public/style.css */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  }
-  
-  main {
-    padding: 1rem;
-  }
-  
-  /* Center and constrain the grid */
-  .grid {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Set a fixed column width for Masonry: each column is 200px */
-  .grid-sizer {
-    width: 200px;
-  }
-  
-  /* Each grid item is now 200px wide */
-  .grid-item {
-    width: 200px;
-    margin-bottom: 10px; /* Vertical gutter */
-  }
-  
-  /* Ensure images maintain their original aspect ratio */
-  .grid-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-  
-  .grid-item img:hover {
-    transform: scale(1.05);
-    border-color: #666;
-  }
-  
-  /* Fixed footer overlay with blur effect and search bar */
-  .footer-blur {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* A gradient to smoothly fade the bottom */
-    background: linear-gradient(transparent, rgba(240,240,240,1));
-    /* Blur the background behind the overlay */
-    backdrop-filter: blur(10px);
-    /* Ensure the overlay appears above other content */
-    z-index: 100;
-  }
-  
-  .footer-blur input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+main {
+  padding: 1rem;
+}
+
+/* Center and constrain the grid */
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Masonry grid sizing */
+.grid-sizer {
+  width: 200px;
+}
+
+/* Grid items */
+.grid-item {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.grid-item img:hover {
+  transform: scale(1.05);
+  border-color: #666;
+}
+
+/* Footer search bar */
+.footer-blur {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(transparent, rgba(240,240,240,1));
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.footer-blur input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* --- PIN Modal Styles --- */
+
+/* The modal overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+/* Modal content box */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 90%;
+  width: 300px;
+}
+
+/* PIN display */
+#pinDisplay {
+  font-size: 24px;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+}
+
+/* PIN pad grid */
+.pin-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* PIN buttons */
+.pin-button {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  background: #eee;
+  cursor: pointer;
+}
+
+.pin-button:active {
+  background: #ddd;
+}
+
+/* Submit button styling */
+.submit-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-button:active {
+  background: #45a049;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
