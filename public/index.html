@@ -1,0 +1,27 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Include Masonry Layout library -->
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <!-- Include imagesLoaded library -->
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Image Gallery</h1>
+  </header>
+  <main>
+    <!-- Masonry grid container -->
+    <div class="grid">
+      <!-- grid-sizer element used by Masonry for responsive column sizing -->
+      <div class="grid-sizer"></div>
+      <!-- Grid items will be injected here by script.js -->
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

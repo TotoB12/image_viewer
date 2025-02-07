@@ -1,0 +1,63 @@
+/* public/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  /* Center and constrain the grid */
+  .grid {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* grid-sizer sets the base column width for Masonry */
+  .grid-sizer {
+    width: 33.333%;
+  }
+  
+  @media (min-width: 768px) {
+    .grid-sizer {
+      width: 25%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid-sizer {
+      width: 20%;
+    }
+  }
+  
+  /* Grid items use 100% of the column width */
+  .grid-item {
+    width: 100%;
+    margin-bottom: 10px; /* Vertical gutter */
+  }
+  
+  /* Ensure images maintain their original aspect ratio */
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .grid-item img:hover {
+    transform: scale(1.05);
+    border-color: #666;
+  }
+  
